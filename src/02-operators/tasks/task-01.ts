@@ -14,3 +14,24 @@
  *  - Final payment
  * 2. Display the calculation results.
  */
+
+const friedRicePrice: number = 18000
+const friedRiceQty: number = 3
+
+const mineralWaterPrice: number = 5000
+const mineralWaterQty: number = 2
+
+const discount: number = 10000
+
+const totalFoodPrice: number = friedRicePrice * friedRiceQty
+const totalDrinkPrice: number = mineralWaterPrice * mineralWaterQty
+
+const grandTotal: number = totalFoodPrice + totalDrinkPrice
+const finalPayment: number = grandTotal - discount
+
+console.log("=== School Cafeteria Receipt ===")
+console.log(`Fried Rice Total : Rp${totalFoodPrice}`)
+console.log(`Drink Total : Rp${totalDrinkPrice}`)
+console.log(`Grand Total : Rp${grandTotal}`)
+console.log(`Discount : Rp${discount}`)
+console.log(`Final Payment : Rp${finalPayment}`)

@@ -14,3 +14,41 @@
  * 2. Store the participant data in a single collection.
  * 3. Display the participant data using console.log.
  */
+
+type Sekolah = {
+    studentId: string
+    name: string
+    age: number
+    hasPaid: boolean
+}
+
+const data: Sekolah[] = [
+    {
+        studentId: "ST001",
+        name: "Ahmad Fauzi",
+        age: 16,
+        hasPaid: true
+    },
+    {
+        studentId: "ST002",
+        name: "Siti Nurhaliza",
+        age: 17,
+        hasPaid: false
+    },
+    {
+        studentId: "ST003",
+        name: "Budi Santoso",
+        age: 16,
+        hasPaid: true
+    }
+]
+
+console.log("=== Backend Development Participants ===")
+
+data.forEach((participant) => {
+    console.log(`Student ID : ${participant.studentId}`)
+    console.log(`Name       : ${participant.name}`)
+    console.log(`Age        : ${participant.age}`)
+    console.log(`Has Paid   : ${participant.hasPaid}`)
+    console.log("-----------------------------")
+})

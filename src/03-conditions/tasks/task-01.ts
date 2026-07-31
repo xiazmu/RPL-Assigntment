@@ -20,3 +20,17 @@
  * will be display "Congratulations! You are eligible to graduate.", 
  * otherwise display "You are not eligible to graduate."
  */
+
+const name: string = 'Alya Putri'
+const finalescore:  number = 82
+const attendance: number = 94
+const tuitionpaid: string = 'Yes'
+
+console.log("== Graduation Result ==");
+console.log("Student Name:", name);
+
+if (finalescore >= 75 && attendance >= 90 && tuitionpaid === "Yes") {
+    console.log("Congratulations! You are eligible to graduate.");
+}else{
+    console.log("You are not eligible to graduate.")
+}

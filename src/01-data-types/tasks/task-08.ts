@@ -21,3 +21,22 @@
  * 2. Store the temperature data in a single collection.
  * 3. Display the temperature data using console.log.
  */
+
+type Suhu = {
+    time: string
+    temperature: number
+}
+
+const data: Suhu[] = [
+    { temperature: 24.5, time: `08:00` },
+    { temperature: 25.1, time: `09:00` },
+    { temperature: 26.8, time: `10:00` },
+    { temperature: 28.4, time: `11:00` },
+    { temperature: 30.2, time: `12:00` },
+    { temperature: 31.1, time: `13:00` },
+    { temperature: 30.7, time: `14:00` },
+    { temperature: 29.3, time: `15:00` },
+]
+
+console.log("=== Temperature Collection ===")
+console.table(data)
