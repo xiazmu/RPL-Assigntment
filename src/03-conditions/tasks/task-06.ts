@@ -27,18 +27,19 @@
 const patientName: string = "Siti Rahma"
 const isCritical: boolean = false
 const hasAppointment: boolean = true
-const age: number = 67
+const age: number = 3
 const hasInsurance: boolean = true
 let destination: string
 
 if (isCritical) {
     destination = "Emergency Room"
 } else if (hasAppointment) {
-    if (age >= 60) {
+    if (age >= 60 || age < 5) {
         destination = "Priority Queue"
     } else {
-        destination = "Regular Queue"
+        destination = "Reguler Queue"
     }
+
 } else {
     if (hasInsurance) {
         destination = "Insurance Registration Counter"

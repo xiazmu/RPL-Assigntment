@@ -25,3 +25,47 @@ const submissions = [
     { student: "Gita", submitted: true, score: 90 },
     { student: "Hana", submitted: true, score: 73 }
 ];
+
+let submittedCount: number = 0
+let notSubmittedCount: number = 0
+let passedCount: number = 0
+let reviseCount: number = 0
+let totalScore: number = 0
+
+console.log("=== LMS Assignment Report ===")
+console.log("Students Who Did Not Submit:")
+
+for (let i: number = 0; i < submissions.length; i++) {
+
+    totalScore += submissions[i].score
+
+    if (submissions[i].submitted) {
+        submittedCount++
+
+        if (submissions[i].score >= 75) {
+            passedCount++
+        } else {
+            reviseCount++
+        }
+
+    } else {
+        notSubmittedCount++
+        console.log(`- ${submissions[i].student}`)
+    }
+}
+
+console.log("\nStudents Who Must Revise:")
+
+for (let i: number = 0; i < submissions.length; i++) {
+    if (submissions[i].submitted && submissions[i].score < 75) {
+        console.log(`- ${submissions[i].student}`)
+    }
+}
+
+const averageScore: number = totalScore / submissions.length
+
+console.log(`\nSubmitted Assignments : ${submittedCount}`)
+console.log(`Did Not Submit        : ${notSubmittedCount}`)
+console.log(`Passed Students       : ${passedCount}`)
+console.log(`Need Revision         : ${reviseCount}`)
+console.log(`Average Score         : ${averageScore}`)

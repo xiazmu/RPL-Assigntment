@@ -37,8 +37,8 @@ const studentName: string = "Fajar Hidayat"
 const gpa: number = 3.86
 const familyIncome: number = 4200000
 const CompetitionCount: number = 4
-const disciplinaryRecord: string = "No"
-const documentComplete: string = "Yes"
+const disciplinaryRecord: boolean = false
+const documentComplete: boolean = true
 
 console.log("== Scholarship Seletion ==")
 console.log("Student Name:", studentName)
@@ -46,8 +46,8 @@ console.log("Student Name:", studentName)
 if (gpa >= 3.75 && familyIncome  < 5000000) {
     if (
         CompetitionCount >= 3 &&
-        disciplinaryRecord === "No" &&
-        documentComplete === "Yes"
+        disciplinaryRecord &&
+        documentComplete
     ) {
         console.log("Scholarship Approved")
     } else {

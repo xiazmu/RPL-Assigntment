@@ -24,20 +24,20 @@
  */
 
 const customerName: string = "Nadia Putri"
-const premiumMember: string = "Yes"
-const roomAvailable: string = "No"
+const premiumMember: boolean = true
+const roomAvailable: boolean = false
 
 console.log("== Hotel Reservation Result ==")
 console.log("Customer Name:", customerName)
 
-if (roomAvailable === "Yes") {
-    if (premiumMember === "Yes") {
+if (roomAvailable) {
+    if (premiumMember) {
         console.log("Free room upgrade.")
     } else {
         console.log("Reserved room confirmed.")
     }
 } else {
-    if (premiumMember === "Yes"){
+    if (premiumMember){
         console.log("You have been placed on the priority waiting list.")
     } else {
         console.log("No rooms are available.")
