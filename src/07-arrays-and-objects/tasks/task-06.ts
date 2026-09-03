@@ -24,3 +24,51 @@ const borrowings = [
     { student: "Eka", bookId: 1, days: 4 },
     { student: "Andi", bookId: 3, days: 8 },
 ];
+
+
+const andiBorrowings = borrowings.filter(
+    borrowing => borrowing.student === "Andi"
+);
+
+console.log("Andi's Borrowings:", andiBorrowings);
+
+
+const borrowingWithBooks = borrowings.map(borrowing => {
+    const book = books.find(book => book.id === borrowing.bookId);
+
+    return {
+        ...borrowing,
+        book: book
+    };
+});
+
+console.log("Borrowings with Book Info:", borrowingWithBooks);
+
+
+const programmingStudents = borrowingWithBooks
+    .filter(borrowing => borrowing.book?.category === "Programming")
+    .map(borrowing => borrowing.student);
+
+console.log("Programming Students:", programmingStudents);
+
+
+const totalBorrowings = borrowings.length;
+
+console.log("Total Borrowings:", totalBorrowings);
+
+
+const totalDays = borrowings.reduce(
+    (total, borrowing) => total + borrowing.days,
+    0
+);
+
+const averageDays = totalDays / borrowings.length;
+
+console.log("Average Borrowing Duration:", averageDays);
+
+
+const studentsMoreThan7Days = borrowings
+    .filter(borrowing => borrowing.days > 7)
+    .map(borrowing => borrowing.student);
+
+console.log("More Than 7 Days:", studentsMoreThan7Days);

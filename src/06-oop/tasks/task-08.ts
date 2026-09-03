@@ -26,29 +26,61 @@
  */
 
 class Payment {
+    transactionId: string
+    amount: number
+
+    constructor(
+        transactionId: string,
+        amount: number
+    ) {
+        this.transactionId = transactionId
+        this.amount = amount
+    }
+
     calculateFee(): number {
         return 0
     }
 }
 
 class CreditCardPayment extends Payment {
-
+    calculateFee(): number {
+        return this.amount * 0.02
+    }
 }
 
 class BankTransferPayment extends Payment {
-
+    calculateFee(): number {
+        return 5000
+    }
 }
 
 class EWalletPayment extends Payment {
-
+    calculateFee(): number {
+        return this.amount * 0.01
+    }
 }
+
+const creditCardPayment = new CreditCardPayment(
+    "TRX001",
+    1000000
+)
+
+const bankTransferPayment = new BankTransferPayment(
+    "TRX002",
+    750000
+)
+
+const eWalletPayment = new EWalletPayment(
+    "TRX003",
+    500000
+)
 
 const payments: Payment[] = [
     creditCardPayment,
     bankTransferPayment,
     eWalletPayment
-];
+]
 
 for (const payment of payments) {
-    console.log(payment.calculateFee());
+    console.log(payment.calculateFee())
 }

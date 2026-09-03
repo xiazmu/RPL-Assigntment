@@ -16,9 +16,37 @@
  */
 
 const students = [
-  { name: "Andi", score: 85 },
-  { name: "Budi", score: 62 },
-  { name: "Citra", score: 91 },
-  { name: "Deni", score: 74 },
-  { name: "Eka", score: 55 },
-];
+    { name: "Andi", score: 85 },
+    { name: "Budi", score: 62 },
+    { name: "Citra", score: 91 },
+    { name: "Deni", score: 74 },
+    { name: "Eka", score: 55 },
+]
+
+const studentNames = students.map(student => student.name)
+
+console.log("Student Names:")
+console.log(studentNames)
+
+
+const passedStudents = students.filter(student => student.score >= 70)
+
+console.log("Passed Students:")
+console.log(passedStudents)
+
+
+const citra = students.find(student => student.name === "Citra")
+
+console.log("Student Citra:")
+console.log(citra)
+
+
+const totalScore = students.reduce(
+    (total, student) => total + student.score,
+    0
+)
+
+const averageScore = totalScore / students.length
+
+console.log("Average Score:")
+console.log(averageScore)

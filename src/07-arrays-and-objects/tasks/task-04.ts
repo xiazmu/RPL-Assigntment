@@ -28,3 +28,32 @@ const cart = [
         quantity: 1,
     },
 ];
+
+const subtotal = cart.reduce((total, item) => {
+    return total + item.price * item.quantity;
+}, 0);
+
+console.log("Subtotal:", subtotal);
+
+
+let discountRate = 0;
+
+if (subtotal >= 3000000) {
+    discountRate = 0.10;
+} else if (subtotal >= 2000000) {
+    discountRate = 0.05;
+}
+
+const discount = subtotal * discountRate;
+
+console.log("Discount:", discount);
+
+
+const finalSubtotal = subtotal - discount;
+
+console.log("Final Subtotal:", finalSubtotal);
+
+
+const expensiveProducts = cart.filter(item => item.price > 1000000);
+
+console.log("Expensive Product:", expensiveProducts);

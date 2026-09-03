@@ -2,7 +2,19 @@
  * A company has a simple data-processing engine used to analyze transaction records.
  */
 
-const transactions = [
+type Transaction = {
+    id: string
+    customer: string
+    amount: number
+    status: "paid" | "pending" | "cancelled"
+}
+
+type TRANSACTION_CATEGORY =
+    "HIGH VALUE" |
+    "MEDIUM VALUE" |
+    "LOW VALUE"
+
+const transactions: Transaction[] = [
     {
         id: "TRX001",
         customer: "Alya",
@@ -33,7 +45,65 @@ const transactions = [
         amount: 780000,
         status: "cancelled"
     }
-];
+]
+
+
+function getCustomerName(selectedTransaction: Transaction): string {
+    return selectedTransaction.customer
+}
+
+
+function getTransactionCategory(
+    selectedTransaction: Transaction
+): TRANSACTION_CATEGORY {
+
+    if (selectedTransaction.amount >= 2000000) {
+        return "HIGH VALUE"
+    } else if (selectedTransaction.amount >= 1000000) {
+        return "MEDIUM VALUE"
+    } else {
+        return "LOW VALUE"
+    }
+}
+
+
+function calculatePlatformFee(selectedTransaction: Transaction): number {
+    if (selectedTransaction.status === "paid") {
+        return selectedTransaction.amount * 0.02
+    } else if (selectedTransaction.status === "pending") {
+        return selectedTransaction.amount * 0.01
+    } else {
+        return 0
+    }
+}
+
+
+function processTransactions<T>(
+    arr: Transaction[],
+    callback: (transaction: Transaction) => T
+): T[] {
+    return arr.map(callback)
+}
+
+
+const customerNames =
+    processTransactions(transactions, getCustomerName)
+
+const transactionCategories =
+    processTransactions(transactions, getTransactionCategory)
+
+const platformFees =
+    processTransactions(transactions, calculatePlatformFee)
+
+
+console.log(`====== CUSTOMER NAMES ======`)
+console.log(customerNames)
+
+console.log(`====== TRANSACTION CATEGORIES ======`)
+console.log(transactionCategories)
+
+console.log(`====== PLATFORM FEES ======`)
+console.log(platformFees)
 
 /** TASKS:
  * - Extract customer's name only in array

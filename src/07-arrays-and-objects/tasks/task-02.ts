@@ -44,4 +44,38 @@ const products = [
         price: 850000,
         stock: 3,
     },
-];
+]
+
+const availableProducts = products.filter(product => product.stock > 0)
+
+console.log("Available Products:")
+console.log(availableProducts)
+
+
+const availableProducts2 = products.filter(product => product.stock > 0)
+
+console.log("Available Products 2:")
+console.log(availableProducts2)
+
+
+const productNames = products.map(product => product.name)
+
+console.log("Product Names:")
+console.log(productNames)
+
+
+const totalValue = products.reduce(
+    (total, product) => total + (product.price * product.stock),
+    0
+)
+
+console.log("Total Value:")
+console.log(totalValue)
+
+
+const sortedProducts = [...availableProducts].sort(
+    (a, b) => b.price - a.price
+)
+
+console.log("Sorted Available Products:")
+console.log(sortedProducts)

@@ -40,6 +40,62 @@ class Person {
     ) { }
 
     showInfo(): void {
-        console.log(`${this.name}, ${this.age} years old`);
+        console.log(`Name: ${this.name}`)
+        console.log(`Age: ${this.age}`)
     }
 }
+
+class Student extends Person {
+    constructor(
+        name: string,
+        age: number,
+        public studentId: string,
+        public grade: number
+    ) {
+        super(name, age)
+    }
+
+    showInfo(): void {
+        console.log("===== STUDENT =====")
+        console.log(`Name: ${this.name}`)
+        console.log(`Age: ${this.age}`)
+        console.log(`Student ID: ${this.studentId}`)
+        console.log(`Grade: ${this.grade}`)
+    }
+}
+
+class Teacher extends Person {
+    constructor(
+        name: string,
+        age: number,
+        public employeeId: string,
+        public subject: string
+    ) {
+        super(name, age)
+    }
+
+    showInfo(): void {
+        console.log("===== TEACHER =====")
+        console.log(`Name: ${this.name}`)
+        console.log(`Age: ${this.age}`)
+        console.log(`Employee ID: ${this.employeeId}`)
+        console.log(`Subject: ${this.subject}`)
+    }
+}
+
+const student = new Student(
+    "Kylian Mbappé",
+    17,
+    "ST001",
+    11
+)
+
+const teacher = new Teacher(
+    "Cristiano Ronaldo",
+    38,
+    "EMP001",
+    "Programming"
+)
+
+student.showInfo()
+teacher.showInfo()
