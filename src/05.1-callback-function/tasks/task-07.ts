@@ -27,7 +27,31 @@
  * - It should only process the students and execute the callback.
  */
 
-const students = [
+type student = {
+    name: string
+    score: number
+    attendance: number
+}
+
+type PASS_STATUS = "PASS" | "FAIL"
+
+type PERFORMANCE_CATEGORY =
+    | "Excellent"
+    | "Good"
+    | "Needs Improvement"
+    | "Poor"
+
+type ATTENDANCE_STATUS =
+    | "Good Attendance"
+    | "Poor Attendance"
+
+type RECOMMENDATION =
+    | "Excellent"
+    | "Good"
+    | "Improve Attendance"
+    | "Improve Academic Peromance"
+
+const students: student[] = [
     { name: "Alya", score: 92, attendance: 96 },
     { name: "Budi", score: 68, attendance: 88 },
     { name: "Citra", score: 84, attendance: 91 },
@@ -35,3 +59,15 @@ const students = [
     { name: "Eka", score: 95, attendance: 82 },
     { name: "Fajar", score: 79, attendance: 97 }
 ];
+
+function getPassStatus(selectedStudent: student) {
+    const status: PASS_STATUS =
+    selectedStudent.score >= 75 &&
+    selectedStudent.attendance >= 90
+        ? "PASS"
+        : "FAIL"
+
+return {
+    
+}
+}

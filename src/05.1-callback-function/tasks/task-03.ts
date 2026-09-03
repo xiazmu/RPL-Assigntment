@@ -8,6 +8,43 @@ const products = [
     { name: "Headset", price: 650000 }
 ];
 
+function processProducts(
+    products: { name: string; price: number }[],
+    callback: (product: { name: string; price: number }) => void
+): void {
+    for (const product of products) {
+        callback(product)
+    }
+}
+
+function displayProduct(product: { name: string; price: number }): void {
+    console.log(`${product.name} - Rp${product.price}`)
+}
+
+function displayExpensiveProduct(
+    product: { name: string; price: number}
+): void {
+    if (product.price > 1000000) {
+        console.log(`${product.name} - Rp${product.price}`)
+    }
+}
+
+function displayDiscountProduct(
+    product: { name: string; price: number }
+): void {
+    if (product.price > 500000) {
+        const discountPrice = product.price * 0.9
+        console.log(
+            `${product.name} - Discount Price: Rp${discountPrice}`
+        )
+    }
+}
+
+processProducts(products, displayProduct)
+processProducts(products, displayExpensiveProduct)
+processProducts(products, displayDiscountProduct)
+
+
 /**
  * The warehouse system needs to perform different operations on the same product list.
  * 1. Operation for display product
@@ -21,3 +58,4 @@ const products = [
  * 
  * Instead of creating a separate loop for every operation, the developer creates a reusable processing function.
  */
+
